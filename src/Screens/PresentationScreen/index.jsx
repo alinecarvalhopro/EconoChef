@@ -1,10 +1,13 @@
 import { SafeAreaView, Text, View } from 'react-native';
 
-import { Button } from '../../components/Button';
+import { useNavigation } from '@react-navigation/native';
+
+import { Button } from '../../components/Button/index.jsx.jsx';
 
 import SVGChefHatIcon from '../../images/svg/Icons/SVGChefHatIcon';
 
 const PresentationScreen = () => {
+  const navigation = useNavigation();
   return (
     <SafeAreaView className="flex-1 items-start justify-center gap-[30px] bg-bg px-[20px]">
       <View className="flex flex-row items-center">
@@ -28,6 +31,7 @@ const PresentationScreen = () => {
       </Text>
       <View className="w-[100%] pr-[40px]">
         <Button
+          onPress={() => navigation.navigate('CreateRecipeScreen')}
           title="Clique aqui para começar"
           textStyles="text-bg font-jostSemibold text-[20px]"
           buttonStyles="bg-secondaryColor w-[100%] h-[46px] flex items-center justify-center rounded-[4px]"
