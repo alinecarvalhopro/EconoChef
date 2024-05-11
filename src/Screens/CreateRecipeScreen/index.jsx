@@ -78,7 +78,7 @@ const CreateRecipeScreen = () => {
           <Button
             onPress={handleAddIngredient}
             title="Incluir ingrediente"
-            textStyles="text-bg font-jostSemibold text-[16px]"
+            textStyles="text-bg font-jostSemibold text-[18px]"
             buttonStyles="bg-secondaryColor w-[100%] h-[46px] flex items-center justify-center rounded-[4px]"
           />
         </View>
@@ -128,6 +128,12 @@ const CreateRecipeScreen = () => {
               handleCheckboxToggle={() => toggleCheckbox('includeBlackPepper')}
             />
           </View>
+
+          <Button
+            title="Criar receita"
+            textStyles="text-bg font-jostSemibold text-[18px]"
+            buttonStyles="bg-secondaryColor w-[100%] h-[46px] flex items-center justify-center rounded-[4px]"
+          />
         </View>
       </ScrollView>
     </View>
