@@ -6,7 +6,7 @@ import * as Font from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import Routes from './src/routes/Routes';
 
-async function loadFonts() {
+const loadFonts = async () => {
   await Font.loadAsync({
     'Jost-Light': require('./assets/fonts/Jost/Jost-Light.ttf'),
     'Jost-Regular': require('./assets/fonts/Jost/Jost-Regular.ttf'),
