@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Text, TouchableOpacity, ActivityIndicator } from 'react-native';
 
-export const Button = ({
+const Button = ({
   title,
   type,
   loading,
@@ -46,3 +46,5 @@ export const Button = ({
     </TouchableOpacity>
   );
 };
+
+export default Button;

@@ -5,7 +5,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import SVGCheckboxSelected from '../../images/svg/Icons/SVGCheckboxSelected';
 import SVGCheckboxUnselected from '../../images/svg/Icons/SVGCheckboxUnselected';
 
-export const Checkbox = ({ text, isChecked, handleCheckboxToggle }) => {
+const Checkbox = ({ text, isChecked, handleCheckboxToggle }) => {
   return (
     <TouchableOpacity onPress={handleCheckboxToggle}>
       <View className="flex flex-row items-center gap-[8px] mb-[15px]">
@@ -17,3 +17,5 @@ export const Checkbox = ({ text, isChecked, handleCheckboxToggle }) => {
     </TouchableOpacity>
   );
 };
+
+export default Checkbox

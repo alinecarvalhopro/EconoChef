@@ -2,37 +2,66 @@ import React, { useState } from 'react';
 
 import { ScrollView, Text, View, Keyboard } from 'react-native';
 
-import Input from '../../components/Input';
+import { useNavigation } from '@react-navigation/native';
 
-import { Button } from '../../components/Button/index.jsx';
-import { Checkbox } from '../../components/Checkbox/index.jsx';
-import IngredientCard from '../../components/IngredientCard/index.jsx';
+import Input from '../../components/Input';
+import Button from '../../components/Button/index.jsx';
+import Checkbox from '../../components/Checkbox/index.jsx';
+import IngredientCreateCard from '../../components/IngredientCreateCard/index.jsx';
 
 import CreateRecipeImage from '../../images/svg/SVGCreateRecipeImage';
 import SVGIngredientIcon from '../../images/svg/Icons/SVGIngredientIcon';
 import SVGListIcon from '../../images/svg/Icons/SVGListIcon';
 
 const CreateRecipeScreen = () => {
-  const [ingredients, setIngredients] = useState([]);
-  const [quantity, setQuantity] = useState(''); 
-  const [name, setName] = useState(''); 
+  const [ingredients, setIngredients] = useState([
+    {
+      quantity: '2',
+      name: 'ovos',
+    },
+    {
+      quantity: '200g',
+      name: 'farinha de trigo',
+    },
+    {
+      quantity: '200ml',
+      name: 'leite',
+    },
+    {
+      quantity: '1kg',
+      name: 'batata',
+    },
+    ,
+    {
+      quantity: '100g',
+      name: 'manteiga',
+    },
+  ]);
+  const [quantity, setQuantity] = useState('');
+  const [name, setName] = useState('');
   const [checkboxes, setCheckboxes] = useState({
     includeOliveOil: false,
     includeVegetableOil: false,
-    includeSalt: false,
-    includeBlackPepper: false,
+    includeSalt: true,
+    includeBlackPepper: true,
   });
 
+  const navigation = useNavigation();
+
   const handleAddIngredient = () => {
-    const newIngredient = {
-      quantity: quantity,
-      name: name,
-    };
-    setIngredients([...ingredients, newIngredient]);
+    if (quantity && name) {
+      const newIngredient = {
+        quantity: quantity,
+        name: name,
+      };
 
-    setQuantity('');
-    setName('');
+      const updatedIngredients = [...ingredients, newIngredient];
 
+      setIngredients(updatedIngredients);
+
+      setQuantity('');
+      setName('');
+    }
     Keyboard.dismiss();
   };
 
@@ -67,13 +96,13 @@ const CreateRecipeScreen = () => {
             label="Nome"
             placeholder="Ex: Cenoura"
             value={name}
-            onChangeText={setName} 
+            onChangeText={setName}
           />
           <Input
             label="Quantidade"
             placeholder="Ex: 200g... 1kg... 200ml..."
             value={quantity}
-            onChangeText={setQuantity} 
+            onChangeText={setQuantity}
           />
           <Button
             onPress={handleAddIngredient}
@@ -95,7 +124,7 @@ const CreateRecipeScreen = () => {
 
           <View>
             {ingredients.map((ingredient, index) => (
-              <IngredientCard
+              <IngredientCreateCard
                 key={index}
                 quantity={ingredient.quantity}
                 name={ingredient.name}
@@ -130,6 +159,7 @@ const CreateRecipeScreen = () => {
           </View>
 
           <Button
+            onPress={() => navigation.navigate('MyRecipeScreen')}
             title="Criar receita"
             textStyles="text-bg font-jostSemibold text-[18px]"
             buttonStyles="bg-secondaryColor w-[100%] h-[46px] flex items-center justify-center rounded-[4px]"

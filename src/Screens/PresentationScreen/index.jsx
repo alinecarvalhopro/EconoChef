@@ -2,7 +2,7 @@ import { SafeAreaView, Text, View } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 
-import { Button } from '../../components/Button/index.jsx';
+import Button from '../../components/Button/index.jsx';
 
 import SVGChefHatIcon from '../../images/svg/Icons/SVGChefHatIcon';
 
