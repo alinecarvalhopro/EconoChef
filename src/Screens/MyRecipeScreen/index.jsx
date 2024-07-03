@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
-// import Button from '../../components/Button/index.jsx';
+import Button from '../../components/Button/index.jsx';
 
 import SVGMyRecipeImage from '../../images/svg/SVGMyRecipeImage.js';
 import SVGRecipeIcon from '../../images/svg/Icons/SVGRecipeIcon.js';
 import SVGFryingIcon from '../../images/svg/Icons/SVGFryingIcon.js';
 import IngredientRecipeCard from '../../components/IngredientRecipeCard/index.jsx';
 import SVGCutleryIcon from '../../images/svg/Icons/SVGCutleryIcon.js';
+import SVGTrashIcon from '../../images/svg/Icons/SVGTrashIcon.js';
+import SVGCopyIcon from '../../images/svg/Icons/SVGCopyIcon.js';
+import SVGWhatsappIcon from '../../images/svg/Icons/SVGWhatsappIcon.js';
 
 const MyRecipeScreen = () => {
   const [ingredients, setIngredients] = useState([
@@ -48,6 +51,8 @@ const MyRecipeScreen = () => {
   const [recipe, setRecipe] = useState(
     'Pré-aqueça o forno a 180°C. Cozinhe as batatas fatiadas em água com sal até ficarem levemente macias. Escorra e reserve. Para o molho branco, em uma panela, derreta a manteiga em fogo médio. Adicione a farinha e mexa constantemente até formar uma mistura homogênea. Gradualmente, adicione o leite à mistura, continuando a mexer para evitar a formação de grumos. Cozinhe até o molho engrossar. Tempere o molho branco com sal e pimenta a gosto. Reserve. Em uma tigela, bata os ovos. Disponha metade das batatas em um refratário untado. Despeje metade do molho branco sobre as batatas. Coloque a outra metade das batatas e cubra com o restante do molho branco. Despeje os ovos batidos sobre o molho branco, espalhando uniformemente. Leve ao forno pré-aquecido por aproximadamente 30-40 minutos, ou até que a parte superior esteja dourada e o gratinado esteja cozido. Retire do forno, deixe descansar por alguns minutos e sirva.'
   );
+  const [confirmDeleteRecipeIsOpen, setConfirmDeleteRecipeIsOpen] =
+    useState(false);
 
   return (
     <View className="flex flex-1 bg-bg pt-[60px]">
@@ -101,17 +106,25 @@ const MyRecipeScreen = () => {
             </Text>
           </View>
         </View>
-
-        <View >
-        {/* <Button
-          title="Confirmar exclusão de receita"
-          textStyles="text-bg font-jostSemibold text-[16px]"
-          buttonStyles="bg-primaryColor w-[100%] h-[46px] flex items-center justify-center rounded-[4px]"
-        /> */}
-        </View>
+        {confirmDeleteRecipeIsOpen && (
+          <Button
+            title="Clique aqui para confirmar exclusão da receita"
+            textStyles="text-bg font-jostSemibold text-[15px] text-center"
+            buttonStyles="bg-attentionColor h-[46px] items-center justify-center rounded-[4px] mt-[10px]"
+          />
+        )}
       </ScrollView>
-
-      <View className="w-[100%] h-[66px] bg-secondaryColor"></View>
+      <View className="w-[100%] h-[66px] flex-row items-center justify-between p-[20px] mt-[30px] bg-secondaryColor">
+        <TouchableOpacity
+          onPress={() =>
+            setConfirmDeleteRecipeIsOpen(!confirmDeleteRecipeIsOpen)
+          }
+        >
+          <SVGTrashIcon />
+        </TouchableOpacity>
+        <SVGCopyIcon />
+        <SVGWhatsappIcon />
+      </View>
     </View>
   );
 };

@@ -16,6 +16,7 @@ module.exports = {
           bg: '#EFEEEB',
           primaryColor: '#748D7A',
           secondaryColor: '#CB753A',
+          attentionColor: '#CC3B3B'
         },
       },
     },

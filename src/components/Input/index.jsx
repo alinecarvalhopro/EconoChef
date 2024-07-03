@@ -10,7 +10,7 @@ export const Input = ({
   ...rest
 }) => {
   return (
-    <View className="flex gap-[10px] mb-[20px]">
+    <View className="gap-[10px] mb-[20px]">
       <Text className="text-primaryColor font-jostRegular text-[20px]">{label}</Text>
       <TextInput
         className="border border-primaryColor h-[50px] rounded-[4px] px-[12px]"
