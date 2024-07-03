@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
 import Button from '../../components/Button/index.jsx';
+import IngredientRecipeCard from '../../components/IngredientRecipeCard/index.jsx';
 
 import SVGMyRecipeImage from '../../images/svg/SVGMyRecipeImage.js';
 import SVGRecipeIcon from '../../images/svg/Icons/SVGRecipeIcon.js';
 import SVGFryingIcon from '../../images/svg/Icons/SVGFryingIcon.js';
-import IngredientRecipeCard from '../../components/IngredientRecipeCard/index.jsx';
 import SVGCutleryIcon from '../../images/svg/Icons/SVGCutleryIcon.js';
 import SVGTrashIcon from '../../images/svg/Icons/SVGTrashIcon.js';
 import SVGCopyIcon from '../../images/svg/Icons/SVGCopyIcon.js';
